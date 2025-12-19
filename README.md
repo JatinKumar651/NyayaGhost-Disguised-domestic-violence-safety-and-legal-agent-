@@ -52,15 +52,8 @@ For detailed methodology, flowcharts, see the full project report included in th
 ---
 
 ## 👨‍💻 Contributors
-- **Jashkarn Singh** (2310993841‑5A)  
-- **Jatin Kumar** (2310993844‑5A)  
-
-Guided by **Dr. Harshvardhan**, Chitkara University Institute of Engineering & Technology.
-
----
-
-## 📜 License
-This project is developed as part of **Project Based Learning – V (22AI014)** at Chitkara University.  
-Feel free to fork and adapt for educational or research purposes. Attribution required.
-
+- **Jashkarn Singh** (2310993841‑5A) 
+- **Jatin Kumar** (2310993844‑5A)
+- Contact No. 7988772142
+- Email for queries: jatintaak3106@gmail.com 
 ---
