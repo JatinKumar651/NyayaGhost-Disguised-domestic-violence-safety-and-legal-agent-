@@ -24,3 +24,13 @@ build/
 # Editor / IDE
 .vscode/
 .idea/
+
+
+# Large media / video files
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Defense videos directory
+SafeNotes-main/assets/DefenseVideos/
