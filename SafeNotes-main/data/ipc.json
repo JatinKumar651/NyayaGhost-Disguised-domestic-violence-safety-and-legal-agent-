@@ -1,0 +1,157 @@
+[
+  {
+    "section": "498A",
+    "title": "Cruelty by husband or relatives",
+    "description": "Covers physical and mental cruelty, harassment, including dowry-related abuse."
+  },
+  {
+    "section": "304B",
+    "title": "Dowry death",
+    "description": "Death of a woman caused by cruelty or harassment over dowry within 7 years of marriage."
+  },
+  {
+    "section": "351",
+    "title": "Assault",
+    "description": "Any gesture or preparation causing apprehension of bodily harm."
+  },
+  {
+    "section": "352",
+    "title": "Punishment for assault or criminal force otherwise than on grave provocation",
+    "description": "Covers use of force or assault without grave provocation."
+  },
+  {
+    "section": "350",
+    "title": "Criminal force",
+    "description": "Using force without consent to cause harm, fear or annoyance."
+  },
+  {
+    "section": "355",
+    "title": "Assault or criminal force with intent to dishonour",
+    "description": "Covers acts of physical humiliation or dishonour."
+  },
+  {
+    "section": "362",
+    "title": "Abduction",
+    "description": "Taking away a person without consent by force or deceit."
+  },
+  {
+    "section": "368",
+    "title": "Wrongfully concealing or confining abducted person",
+    "description": "Knowingly concealing or keeping confined an abducted person."
+  },
+  {
+    "section": "503",
+    "title": "Criminal intimidation",
+    "description": "Threats to cause injury to person, reputation or property."
+  },
+  {
+    "section": "504",
+    "title": "Intentional insult with intent to provoke breach of peace",
+    "description": "Verbal abuse or insult intended to provoke disturbance."
+  },
+  {
+    "section": "506",
+    "title": "Punishment for criminal intimidation",
+    "description": "Covers threats of death, grievous hurt, or serious harm."
+  },
+  {
+    "section": "507",
+    "title": "Criminal intimidation by anonymous communication",
+    "description": "Threats sent without revealing identity (letters, messages)."
+  },
+  {
+    "section": "509",
+    "title": "Word, gesture or act intended to insult modesty of a woman",
+    "description": "Covers verbal/non-verbal acts intended to insult a woman's dignity."
+  },
+  {
+    "section": "294",
+    "title": "Obscene acts and songs",
+    "description": "Obscene words or acts causing annoyance in public."
+  },
+  {
+    "section": "376",
+    "title": "Rape",
+    "description": "Non-consensual sexual intercourse."
+  },
+  {
+    "section": "354",
+    "title": "Assault or criminal force to woman with intent to outrage modesty",
+    "description": "Covers acts intended to outrage modesty of a woman."
+  },
+  {
+    "section": "354A",
+    "title": "Sexual harassment",
+    "description": "Includes unwelcome contact, demands, or sexually coloured remarks."
+  },
+  {
+    "section": "354B",
+    "title": "Assault with intent to disrobe",
+    "description": "Forceful attempt to disrobe a woman."
+  },
+  {
+    "section": "354C",
+    "title": "Voyeurism",
+    "description": "Capturing or watching a woman in private without consent."
+  },
+  {
+    "section": "354D",
+    "title": "Stalking",
+    "description": "Repeated following or contacting a person against their will."
+  },
+  {
+    "section": "306",
+    "title": "Abetment of suicide",
+    "description": "When cruelty or harassment leads to suicide."
+  },
+  {
+    "section": "323",
+    "title": "Voluntarily causing hurt",
+    "description": "Causing bodily pain or injury without grave provocation."
+  },
+  {
+    "section": "324",
+    "title": "Voluntarily causing hurt by dangerous weapons",
+    "description": "Causing injury using dangerous objects or means."
+  },
+  {
+    "section": "326",
+    "title": "Voluntarily causing grievous hurt by dangerous weapons",
+    "description": "Serious injuries caused by dangerous weapons or means."
+  },
+  {
+    "section": "307",
+    "title": "Attempt to murder",
+    "description": "Violence with intent to kill, though death may not occur."
+  },
+  {
+    "section": "299",
+    "title": "Culpable homicide",
+    "description": "Causing death with knowledge but without intent to murder."
+  },
+  {
+    "section": "300",
+    "title": "Murder",
+    "description": "Intentionally causing death."
+  },
+  {
+    "section": "301",
+    "title": "Culpable homicide by causing death of person other than intended",
+    "description": "Death caused to unintended person during violent act."
+  },
+  {
+    "section": "302",
+    "title": "Punishment for murder",
+    "description": "Prescribes penalty for murder."
+  },
+  {
+    "section": "304",
+    "title": "Punishment for culpable homicide not amounting to murder",
+    "description": "Covers cases where intent to murder is absent."
+  },
+  {
+    "section": "311",
+    "title": "Attempt to commit offences punishable with death or life imprisonment",
+    "description": "Covers attempts to commit serious crimes."
+  }
+]

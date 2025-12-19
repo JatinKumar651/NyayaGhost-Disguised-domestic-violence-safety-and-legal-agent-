@@ -1,0 +1,398 @@
+import React, { useState, useContext, useRef, useEffect } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+  StatusBar,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native';
+import { theme } from '../../constants/colors';
+import { ChevronLeft } from 'lucide-react-native';
+import { useNavigation } from '@react-navigation/native';
+import { SettingsContext } from '../../contexts/SettingsContext';
+import * as Haptics from 'expo-haptics';
+import * as LocalAuthentication from 'expo-local-authentication';
+import { LongPressGestureHandler, State } from 'react-native-gesture-handler';
+
+export default function CalculatorUnlock() {
+  const navigation = useNavigation();
+  const [expression, setExpression] = useState('');
+  const [result, setResult] = useState('');
+  const [lastResult, setLastResult] = useState(null);
+  const [justEvaluated, setJustEvaluated] = useState(false);
+  const { accessPin, setIsUnlocked, biometricEnabled } = useContext(SettingsContext);
+  const scrollRef = useRef();
+
+
+  const handlePress = (value) => {
+    const operators = ['+', '-', '*', '/', '%'];
+    const lastChar = expression.slice(-1);
+  
+    if (expression === '' && (operators.includes(value) || value === '%')) {
+      setExpression('0' + value);
+      return;
+    }
+
+    // Handle '.'
+    if (value === '.') {
+      // If empty, insert 0.
+      if (expression === '') {
+        setExpression('0.');
+        return;
+      }
+
+      // If last character is an operator, insert 0.
+      if (operators.includes(lastChar)) {
+        setExpression(expression + '0.');
+        return;
+      }
+
+      // Prevent multiple dots in the same number
+      const parts = expression.split(/[\+\-\×\/%]/); // split by operator
+      const lastPart = parts[parts.length - 1];
+      if (lastPart.includes('.')) {
+        return; // already has a dot
+      }
+    }
+
+    // Prevent double operators
+    if (operators.includes(lastChar) && operators.includes(value)) {
+      return;
+    }
+
+    // Reset after evaluation
+    if (justEvaluated && !operators.includes(value)) {
+      setExpression(value);
+      setJustEvaluated(false);
+      return;
+    }
+
+    if (justEvaluated && operators.includes(value)) {
+      setExpression(String(lastResult) + value);
+      setJustEvaluated(false);
+      return;
+    }
+
+    setExpression(prev => prev + value);
+  };
+
+
+  const handleClear = () => {
+    setExpression('');
+    setResult('');
+  };
+
+  const handleDelete = () => {
+    setExpression((prev) => prev.slice(0, -1));
+  };
+
+  const handleEvaluate = () => {
+    const cleaned = expression.trim();
+
+    if (cleaned === '') return;
+
+    const lastChar = cleaned.slice(-1);
+
+    // Check for unlock PIN directly entered
+    if (cleaned === accessPin) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      setIsUnlocked(true);
+      return;
+    }
+
+    const binaryOperators = ['+', '-', '*', '/'];
+    if (binaryOperators.includes(lastChar)) {
+      return;
+    }
+
+    let evalReady;
+
+    try {
+      evalReady = cleaned.replace(/(\d+(\.\d+)?)%(?!\d)/g, '($1/100)');
+      
+      let evalResult = eval(evalReady);
+
+      if (typeof evalResult === 'number' && isFinite(evalResult)) {
+        evalResult = Number(evalResult.toPrecision(10));
+      }
+
+      setResult(String(evalResult));
+      setLastResult(evalResult);
+      setJustEvaluated(true);
+    } catch (err) {
+      setResult('Error');
+      setJustEvaluated(true);
+    }
+  };
+
+  const renderButton = (label, onPress, key) => {
+    const baseButton = (
+      <TouchableOpacity
+        key={key}
+        style={[
+          label === 'zero' ? styles.longButton : styles.button,
+          label === '=' || label === '+' || label === '−' || label === '×' || label === '÷' ? styles.operator : null,
+          label === 'AC' || label === '⌫' ? styles.functionButton : null,
+        ]}
+        onPress={onPress}
+      >
+        <Text style={styles.buttonText}>{label === 'zero' ? '0' : label}</Text>
+      </TouchableOpacity>
+    );
+
+    if (label === '=') {
+      return (
+        <LongPressGestureHandler
+          key={key}
+          minDurationMs={1500}
+          onHandlerStateChange={({ nativeEvent }) => {
+            if (nativeEvent.state === State.ACTIVE) {
+              console.log('Long press detected');
+              handleBiometricUnlock();
+            }
+          }}
+        >
+          {baseButton}
+        </LongPressGestureHandler>
+      );
+    }
+
+    return baseButton;
+  }
+
+  const handleBiometricUnlock = async () => {
+    if (!biometricEnabled) return;
+
+    const supported = await LocalAuthentication.hasHardwareAsync();
+    const enrolled = await LocalAuthentication.isEnrolledAsync();
+
+    if (!supported || !enrolled) {
+      alert('Biometric authentication not available.');
+      return;
+    }
+
+    const result = await LocalAuthentication.authenticateAsync({
+  promptMessage: 'Authenticate to unlock NyayaGhost',
+      fallbackLabel: 'Use PIN instead',
+      disableDeviceFallback: true,
+    });
+
+    if (result.success) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      setIsUnlocked(true);
+    } else {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    }
+  };
+
+  const buttons = [
+    ['AC', '⌫', '%', '÷'],
+    ['7', '8', '9', '×'],
+    ['4', '5', '6', '−'],
+    ['1', '2', '3', '+'],
+    ['zero', '.', '='],
+  ];
+
+  useEffect(() => {
+    scrollRef.current?.scrollToEnd({ animated: false });
+  }, [expression]);
+
+  return (
+    <SafeAreaView
+      style={{
+        flex: 1,
+        paddingTop: Platform.OS === 'android' ? 10 : StatusBar.currentHeight,
+        backgroundColor: theme.background,
+      }}
+    >
+      <View style={styles.container}>
+        {/* Header with back icon */}
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <ChevronLeft size={32} color={theme.text} />
+          </TouchableOpacity>
+          {/* Removed Calculator text from header */}
+          <View style={{ width: 24 }} />
+        </View>
+
+        {/* Display */}
+        <View style={styles.display}>
+          {result !== '' ? (
+            <>
+              <View style={styles.expressionContainer}>
+                <ScrollView
+                  ref={scrollRef}
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-end' }}
+                >
+                  <Text style={styles.smallExpression}>
+                    {expression
+                      .replace(/\*/g, '×')
+                      .replace(/\//g, '÷')
+                      .replace(/-/g, '−')}
+                  </Text>
+                </ScrollView>
+              </View>
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-end' }}
+              >
+                <Text style={styles.bigResult} numberOfLines={1}>
+                  = {result}
+                </Text>
+              </ScrollView>
+            </>
+          ) : (
+            <View style={styles.expressionContainer}>
+              <ScrollView
+                ref={scrollRef}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-end' }}
+              >
+                <Text style={styles.expressionText}>
+                  {expression
+                    .replace(/\*/g, '×')
+                    .replace(/\//g, '÷')
+                    .replace(/-/g, '−')}
+                </Text>
+              </ScrollView>
+            </View>
+          )}
+        </View>
+
+        {/* Buttons */}
+        <View style={styles.buttonGrid}>
+          {buttons.map((row, rowIndex) => (
+            <View key={`row-${rowIndex}`} style={styles.row}>
+              {row.map((label, i) =>
+                renderButton(label, () => {
+                  if (label === 'AC') handleClear();
+                  else if (label === '⌫') handleDelete();
+                  else if (label === '=') handleEvaluate();
+                  else if (label === '÷') handlePress('/');
+                  else if (label === '×') handlePress('*');
+                  else if (label === '−') handlePress('-');
+                  else if (label === 'zero') handlePress('0');
+                  else handlePress(label);
+                }, `${rowIndex}-${i}`)
+              )}
+            </View>
+          ))}
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: theme.background,
+    paddingTop: 50, // add this!
+    paddingHorizontal: 20,
+  paddingBottom: 8,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 28,
+    color: theme.text,
+    fontFamily: 'Inter',
+  },
+  display: {
+    backgroundColor: theme.background,
+    borderRadius: 10,
+    padding: 16,
+    minHeight: 150,
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  expression: {
+    fontSize: 50,
+    color: theme.text,
+    textAlign: 'right',
+    fontFamily: 'Inter',
+  },
+    expressionText: {
+      fontSize: 64,
+    textAlign: 'right',
+    color: theme.muted,
+      fontSize: 44,
+    marginTop: 4,
+  },
+  buttonGrid: {
+    flex: 1,
+    justifyContent: 'flex-start',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  button: {
+  width: 80,
+  height: 80,
+  borderRadius: 40,
+  backgroundColor: theme.card,
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginHorizontal: 4,
+  marginVertical: 2,
+  },
+  functionButton: {
+    backgroundColor: '#4a4a4a',
+  },
+  buttonText: {
+    fontSize: 24,
+    color: theme.text,
+    fontFamily: 'Inter',
+  },
+  operator: {
+  backgroundColor: '#FF9500', // iOS orange
+  },
+  longButton: {
+  width: 170,
+  height: 80,
+  borderRadius: 40,
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: theme.card,
+  marginHorizontal: 4,
+  marginVertical: 2,
+  },
+  expressionContainer: {
+    width: '100%',
+    overflow: 'hidden',
+    alignItems: 'flex-end',
+  },
+  expressionText: {
+    fontSize: 50,
+    color: theme.text,
+    textAlign: 'right',
+    fontFamily: 'Inter',
+  },
+  smallExpression: {
+    fontSize: 24,
+    color: theme.muted,
+    textAlign: 'right',
+    fontFamily: 'Inter',
+  },
+  bigResult: {
+    fontSize: 64,
+    color: theme.text,
+    textAlign: 'right',
+    fontFamily: 'Inter',
+    fontWeight: 'bold',
+    marginTop: 8,
+  },
+});

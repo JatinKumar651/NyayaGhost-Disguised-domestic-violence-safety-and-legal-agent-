@@ -1,0 +1,292 @@
+[
+  {
+    "section": "498A",
+    "title": "Cruelty by husband or relatives",
+    "description": "Covers physical and mental cruelty, harassment, including dowry-related abuse."
+  },
+  {
+    "section": "304B",
+    "title": "Dowry death",
+    "description": "Death of a woman caused by cruelty or harassment over dowry within 7 years of marriage."
+  },
+  {
+    "section": "351",
+    "title": "Assault",
+    "description": "Any gesture or preparation causing apprehension of bodily harm."
+  },
+  {
+    "section": "352",
+    "title": "Punishment for assault or criminal force otherwise than on grave provocation",
+    "description": "Covers use of force or assault without grave provocation."
+  },
+  {
+    "section": "350",
+    "title": "Criminal force",
+    "description": "Using force without consent to cause harm, fear or annoyance."
+  },
+  {
+    "section": "355",
+    "title": "Assault or criminal force with intent to dishonour",
+    "description": "Covers acts of physical humiliation or dishonour."
+  },
+  {
+    "section": "362",
+    "title": "Abduction",
+    "description": "Taking away a person without consent by force or deceit."
+  },
+  {
+    "section": "368",
+    "title": "Wrongfully concealing or confining abducted person",
+    "description": "Knowingly concealing or keeping confined an abducted person."
+  },
+  {
+    "section": "503",
+    "title": "Criminal intimidation",
+    "description": "Threats to cause injury to person, reputation or property."
+  },
+  {
+    "section": "504",
+    "title": "Intentional insult with intent to provoke breach of peace",
+    "description": "Verbal abuse or insult intended to provoke disturbance."
+  },
+  {
+    "section": "506",
+    "title": "Punishment for criminal intimidation",
+    "description": "Covers threats of death, grievous hurt, or serious harm."
+  },
+  {
+    "section": "507",
+    "title": "Criminal intimidation by anonymous communication",
+    "description": "Threats sent without revealing identity (letters, messages)."
+  },
+  {
+    "section": "509",
+    "title": "Word, gesture or act intended to insult modesty of a woman",
+    "description": "Covers verbal/non-verbal acts intended to insult a woman's dignity."
+  },
+  {
+    "section": "294",
+    "title": "Obscene acts and songs",
+    "description": "Obscene words or acts causing annoyance in public."
+  },
+  {
+    "section": "376",
+    "title": "Rape",
+    "description": "Non-consensual sexual intercourse."
+  },
+  {
+    "section": "354",
+    "title": "Assault or criminal force to woman with intent to outrage modesty",
+    "description": "Covers acts intended to outrage modesty of a woman."
+  },
+  {
+    "section": "354A",
+    "title": "Sexual harassment",
+    "description": "Includes unwelcome contact, demands, or sexually coloured remarks."
+  },
+  {
+    "section": "354B",
+    "title": "Assault with intent to disrobe",
+    "description": "Forceful attempt to disrobe a woman."
+  },
+  {
+    "section": "354C",
+    "title": "Voyeurism",
+    "description": "Capturing or watching a woman in private without consent."
+  },
+  {
+    "section": "354D",
+    "title": "Stalking",
+    "description": "Repeated following or contacting a person against their will."
+  },
+  {
+    "section": "306",
+    "title": "Abetment of suicide",
+    "description": "When cruelty or harassment leads to suicide."
+  },
+  {
+    "section": "323",
+    "title": "Voluntarily causing hurt",
+    "description": "Causing bodily pain or injury without grave provocation."
+  },
+  {
+    "section": "324",
+    "title": "Voluntarily causing hurt by dangerous weapons",
+    "description": "Causing injury using dangerous objects or means."
+  },
+  {
+    "section": "326",
+    "title": "Voluntarily causing grievous hurt by dangerous weapons",
+    "description": "Serious injuries caused by dangerous weapons or means."
+  },
+  {
+    "section": "307",
+    "title": "Attempt to murder",
+    "description": "Violence with intent to kill, though death may not occur."
+  },
+  {
+    "section": "299",
+    "title": "Culpable homicide",
+    "description": "Causing death with knowledge but without intent to murder."
+  },
+  {
+    "section": "300",
+    "title": "Murder",
+    "description": "Intentionally causing death."
+  },
+  {
+    "section": "301",
+    "title": "Culpable homicide by causing death of person other than intended",
+    "description": "Death caused to unintended person during violent act."
+  },
+  {
+    "section": "302",
+    "title": "Punishment for murder",
+    "description": "Prescribes penalty for murder."
+  },
+  {
+    "section": "304",
+    "title": "Punishment for culpable homicide not amounting to murder",
+    "description": "Covers cases where intent to murder is absent."
+  },
+  {
+    "section": "311",
+    "title": "Attempt to commit offences punishable with death or life imprisonment",
+    "description": "Covers attempts to commit serious crimes."
+  },
+  {
+    "section": "2(a)",
+    "title": "Aggrieved Person",
+    "description": "Defines an aggrieved person as any woman who is, or has been, in a domestic relationship and has been subjected to domestic violence."
+  },
+  {
+    "section": "2(f)",
+    "title": "Domestic Relationship",
+    "description": "Defines domestic relationship as a relationship between two persons who live, or have lived, together in a shared household."
+  },
+  {
+    "section": "2(q)",
+    "title": "Respondent",
+    "description": "Defines respondent as any adult male who is, or has been, in a domestic relationship with the aggrieved person, and relatives of the husband or male partner."
+  },
+  {
+    "section": "3",
+    "title": "Definition of Domestic Violence",
+    "description": "Covers physical abuse, sexual abuse, verbal and emotional abuse, and economic abuse."
+  },
+  {
+    "section": "4",
+    "title": "Information to Protection Officer and Others",
+    "description": "Any person who has reason to believe that an act of domestic violence has been committed may give information to the Protection Officer."
+  },
+  {
+    "section": "5",
+    "title": "Duties of Police Officers, Service Providers and Magistrates",
+    "description": "Ensures they inform the aggrieved woman of her rights under the Act."
+  },
+  {
+    "section": "6",
+    "title": "Duty to Inform the Aggrieved Person",
+    "description": "Protection Officer must inform the woman about her rights to protection orders, legal aid, shelter homes and medical facilities."
+  },
+  {
+    "section": "7",
+    "title": "Counselors",
+    "description": "Magistrate may seek assistance of counselors for settlement and protection."
+  },
+  {
+    "section": "8",
+    "title": "Protection Officers",
+    "description": "Appointment of Protection Officers by the State Government to assist the aggrieved person."
+  },
+  {
+    "section": "9",
+    "title": "Duties of Protection Officers",
+    "description": "Protection Officers must assist victims in filing applications, provide information, ensure compliance with orders."
+  },
+  {
+    "section": "10",
+    "title": "Service Providers",
+    "description": "Recognized NGOs and institutions may provide shelter, medical aid, legal aid and counseling to aggrieved persons."
+  },
+  {
+    "section": "12",
+    "title": "Application to Magistrate",
+    "description": "Aggrieved person or Protection Officer can file an application before the Magistrate seeking relief."
+  },
+  {
+    "section": "13",
+    "title": "Service of Notice",
+    "description": "Magistrate directs service of notice to the respondent."
+  },
+  {
+    "section": "14",
+    "title": "Counseling",
+    "description": "Magistrate may direct respondent or aggrieved person to undergo counseling."
+  },
+  {
+    "section": "15",
+    "title": "Assistance of Welfare Expert",
+    "description": "Magistrate may appoint a welfare expert to assist in proceedings."
+  },
+  {
+    "section": "17",
+    "title": "Right to Reside in a Shared Household",
+    "description": "Aggrieved woman has the right to reside in the shared household, regardless of ownership."
+  },
+  {
+    "section": "18",
+    "title": "Protection Orders",
+    "description": "Magistrate may prohibit respondent from committing violence, contacting the aggrieved person, or entering the workplace."
+  },
+  {
+    "section": "19",
+    "title": "Residence Orders",
+    "description": "Magistrate may order respondent to remove himself from the shared household or restrain him from dispossessing the woman."
+  },
+  {
+    "section": "20",
+    "title": "Monetary Relief",
+    "description": "Magistrate may direct respondent to provide monetary relief to meet expenses incurred by the aggrieved woman."
+  },
+  {
+    "section": "21",
+    "title": "Custody Orders",
+    "description": "Magistrate may grant temporary custody of children to the aggrieved woman."
+  },
+  {
+    "section": "22",
+    "title": "Compensation Orders",
+    "description": "Magistrate may direct respondent to pay compensation and damages for injuries, including mental torture and emotional distress."
+  },
+  {
+    "section": "23",
+    "title": "Power to Grant Interim and Ex Parte Orders",
+    "description": "Magistrate may grant interim and ex parte orders based on the application."
+  },
+  {
+    "section": "25",
+    "title": "Duration and Alteration of Orders",
+    "description": "Orders remain in force until modified or revoked by the Magistrate."
+  },
+  {
+    "section": "28",
+    "title": "Procedure",
+    "description": "All proceedings under Sections 12, 18–23 and 31 are governed by the CrPC."
+  },
+  {
+    "section": "31",
+    "title": "Penalty for Breach of Protection Order",
+    "description": "Breach of a protection order is punishable with imprisonment up to one year and/or fine up to Rs. 20,000."
+  },
+  {
+    "section": "32",
+    "title": "Cognizance and Proof",
+    "description": "Offences under Section 31 are cognizable and non-bailable."
+  },
+  {
+    "section": "36",
+    "title": "Act Not in Derogation of Other Laws",
+    "description": "The provisions of this Act are in addition to, not in derogation of, existing laws."
+  }
+]
